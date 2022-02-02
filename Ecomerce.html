@@ -1,0 +1,116 @@
+<html>
+    <head>
+    <title>Activity</title>
+        <script>
+        var eamount,disco,tamount;
+
+function dispval() {
+    
+    var electitem = document.getElementById("Eitem");  
+    eamount = document.getElementById("price").value = electitem.options[electitem.selectedIndex].value; 
+        
+  }
+  function check(disc) {
+   disco =disc*eamount;
+   document.getElementById("tprice").value=disco;
+  }
+  function myFunction() {
+    var x = document.getElementById("inprice").value;
+    tamount=x-disco;
+    alert("payment successful, your exchange is "+tamount);
+
+  }
+</script>
+
+     <style>
+           table, th, td {
+            border:2px solid black;
+            }
+            .center {
+        margin-left: auto;
+        margin-right: auto;
+        }
+        
+        </style>
+    </head>
+    <body  background =  "C:\Users\Atos\Desktop\HTML sample\shopee.png"; >
+        
+  <style type"text/css">
+
+    body{
+       
+    font-family: sans-serif;
+    }
+    section {
+    /*border: 5px solid rgb(10, 102, 240);*/
+    height: 90vh;
+    
+    position: relative;
+    
+    }.container{
+    
+    /*border: 3px solid rgb(240, 205, 10);*/
+    max-width: 700px;
+    width: 100%
+    
+    height: 50vh;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    
+    Position:absolute;
+    right:0;
+    Left:0;
+    top:0;
+    bottom:0;
+    margin: auto;
+    }
+    </style>
+<section>
+  <div class="container">
+        <form>
+        <table class="center" bgcolor="#55ACEE">
+            <td colspan="3" align="center"><b>PRODUCT ENTRY SCREEN</b></td><tr>
+            <td colspan="3">
+                <select name="Eitem" id="Eitem" style="width:350px;" onchange = "dispval()">
+                    <option value="">PLEASE SELECT ITEM</option> </option>
+                    <option value="28000">Desktop</option>
+                    <option value="30000">Laptop</option>
+                    <option value="20000">Mobile Phone</option>
+                    <option value="3200">Speaker</option>
+                    <option value="2000">Microphone</option>
+                    </select>
+
+            </td>
+            <tr>
+            <td colspan="3">Php<input type="number" id="price" name="price" value="0" readonly></td>
+            <tr>
+            <td colspan="3" align="CENTER"><b>DISCOUNTS</b></td>
+            <tr>
+            <td style="font-size:10px" align="center">
+            <b>Black Friday:</b><input type="radio" name="disc" value="0.3" onclick="check(this.value)" >
+            </td>
+            <td style="font-size:10px" align="center">
+            <b>App100:</b> <input type="radio" name="disc" value="0.1" onclick="check(this.value)">
+            </td>
+            <td style="font-size:10px"  align="center">
+            <b>App200:</b><input type="radio" name="disc" value="0.2" onclick="check(this.value)">
+
+            </td><tr>
+            <td colspan="3"><b>Total Amount</b></td><tr></tr>
+            <td  colspan="3">
+            <input type="number" id="tprice" name="tprice" value="0" readonly>
+            </td>
+            <tr>
+            <td colspan="3">Place Order</td><tr></tr>
+            <td colspan="3">
+            <input type="number" id="inprice" name="inprice" value="0" required></td>
+            <tr>
+            <td colspan="3" align="center" &nbsp;>
+            <input type="Submit"  onclick="myFunction()">
+            </td>
+        </table>
+        </form>
+        
+    </body>
+</html>
