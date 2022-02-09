@@ -1,0 +1,94 @@
+1.	Install NodeJs, Visual studio code
+2.	create a Welcome component  to greet the user using a javascript function,
+with a property called as name. Apply some css styling. Use the component in App  component.
+
+App.js
+import logo from './logo.svg';
+import './App.css';
+import Welcome from './Welcome'
+
+function App() {
+  return (
+    <div>
+        <Welcome name= "Jecsel" />
+    </div>
+  );
+}
+
+Welcome.js
+import React, { Component } from 'react';   
+  
+export default class Welcome extends Component {  
+constructor(props){
+    super(props);
+}
+  render() {  
+    return (  
+      <div>  
+           <h1 style={{color: "Blue"}}> Good Day {this.props.name}!</h1> 
+      </div>  
+    );  
+  }  
+} 
+
+3.Create a Component to add two numbers.
+
+import { Component } from "react/cjs/react.development";
+
+export default class AddTwoNumbers extends Component{
+    constructor(props){
+        super(props);
+        this.state = { firstNumber : 19, secondNumber : 6};
+    }
+    render(){
+        return(
+            <div>
+                <p>Adding of Two Numbers</p>
+                <p> {this.state.firstNumber} + {this.state.secondNumber}</p>
+                <p>{ this.state.firstNumber + this.state.secondNumber }</p>
+            </div>
+        );
+    }
+
+4.Modify the card component to add a props age and perform the validation,to check it’s a number.
+
+Card.js
+import { Component } from "react/cjs/react.development";
+import PropTypes from 'prop-types';
+
+export default class Card extends Component{
+    constructor(props){
+        super(props);
+    }
+    render(){
+        return(
+            <div>
+                <h1> Hi I'm { this.props.firstName + ' ' + this.props.lastName } and I'm { this.props.age } years old. </h1>
+            </div>
+        );
+    }
+}  
+  Card.propTypes = {
+        firstName: PropTypes.string.isRequired,
+        age : PropTypes.number
+    }
+
+App.js
+import './App.css';
+import Card from './Card';
+
+function App() {
+  return (
+    <div>
+
+        <Card firstName='John Jecsel' lastName = 'Montero'  age= '26'/>
+    </div>
+  );
+}
+
+export default App;
+
+5.What is Virtual DOM in ReactJS?
+
+DOM stands for “Document Object Model”. The DOM in simple words represents the UI of your application. Everytime there is a change in the state of your application UI, the DOM gets updated to represent that change. 
+
